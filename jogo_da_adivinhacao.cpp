@@ -24,7 +24,7 @@ int main (){
 		 	 cout << "Chute um numero de 1 a 100" << endl;
              cin >> chute;
              
-             double pontosPerdidos = abs(chute-numerosecreto)/2;
+             double pontosPerdidos = abs(chute-numerosecreto)/2.0;
              pontos = pontos - pontosPerdidos;
              
              cout << "O valor do seu chute e: " << chute << endl;
