@@ -1,5 +1,6 @@
 #include <iostream>
 #include <time.h>
+#include <cmath>
 using namespace std;
 
 int main (){
@@ -7,26 +8,14 @@ int main (){
 		 cout<< "*Bem-vindos ao jogo de adivinhacao!*" << endl;
 		 cout<< "************************************" << endl;
 		 
+		 cout << "!VOCE INICIA O JOGO COM 1000 PONTOS!" << endl;
 		 
      int numerosecreto = 42;
      int tentativas = 0;
-     // int chute;
-         //cout << "Chute um numero de 1 a 100" << endl;
-         //cin >> chute;
-         //cout << "O valor do seu chute e: " << chute << endl;
-         
-         //bool acertou = chute == numerosecreto;
-         //bool menor = chute < numerosecreto;
-         // if (acertou){
-         // 	cout << "Parabens! Voce acertou o numero secreto" << endl;
-		 // }
-		 // else if(menor){
-		 // 	cout << "Voce errou, o seu chute foi menor que o numero secreto!" << endl;
-		 // }
-		 //else{
-		 //	cout << "Voce errou, o seu chute foi maior que o numero secreto!" << endl;
-		 //}
-		 bool naoAcertou = true; 
+     bool naoAcertou = true; 
+     
+     double pontos = 1000.0;
+    
 		 while (naoAcertou)
 		 {
 		 	 tentativas++;
@@ -34,6 +23,10 @@ int main (){
 		 	 cout << "Tentativa " << tentativas << endl;
 		 	 cout << "Chute um numero de 1 a 100" << endl;
              cin >> chute;
+             
+             double pontosPerdidos = abs(chute-numerosecreto)/2;
+             pontos = pontos - pontosPerdidos;
+             
              cout << "O valor do seu chute e: " << chute << endl;
              bool acertou = chute == numerosecreto;
              bool menor = chute < numerosecreto;
@@ -41,7 +34,6 @@ int main (){
 			  {
          	cout << "Parabens! Voce acertou o numero secreto" << endl;
          	naoAcertou = false;
-         	//break;
 		 	}
 			 else if(menor)
 		 	{
@@ -54,5 +46,6 @@ int main (){
 		 }
      
      cout << "FIM DE JOGO!!" <<endl;
-     cout << "Voce acertou em " << tentativas <<  " tentativas" <<endl;
+     cout << "Voce acertou em " << tentativas <<  " tentativas, e sua pontuacao foi " << pontos << " pontos!!"<<endl;
+     
 }
