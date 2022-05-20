@@ -1,12 +1,15 @@
 #include <iostream>
 #include <time.h>
+#include <cstdlib>
 #include <cmath>
+#include <ctime>
 #include <locale.h>
 using namespace std;
 
 int main (){
 	 int tentativas = 0;
-	 int numeroSecreto = 42;
+	 srand(time(NULL));
+	 int numeroSecreto = rand() % 100;
      bool naoAcertou = true; 
      double pontos = 1000.0;
      int numeroDeTentativas;
@@ -49,8 +52,6 @@ int main (){
              
              double pontosPerdidos = abs(chute-numeroSecreto)/2.0;
              pontos = pontos - pontosPerdidos;
-             
-             cout << "O valor do seu chute é: " << chute << endl;
              bool acertou = chute == numeroSecreto;
              bool menor = chute < numeroSecreto;
 		 	 if (acertou)
@@ -69,36 +70,6 @@ int main (){
 		 	}
 		 	
 	 	}
-		  
-	 	// while (naoAcertou)
-		 //{
-		 	// tentativas++;
-		 	 //int chute;
-		 	 //cout << "Tentativa " << tentativas << endl;
-		 	 //cout << "Chute um número de 1 a 100" << endl;
-             //cin >> chute;
-             
-             //double pontosPerdidos = abs(chute-numeroSecreto)/2.0;
-             //pontos = pontos - pontosPerdidos;
-             
-             //cout << "O valor do seu chute é: " << chute << endl;
-             //bool acertou = chute == numeroSecreto;
-             //bool menor = chute < numeroSecreto;
-		 	 //if (acertou)
-			 // {
-         	//cout << "Parabéns! Você acertou o número secreto" << endl;
-         	//naoAcertou = false;
-		 	//}
-			 // else if(menor)
-		 	//{
-		 	//cout << "Você errou, o seu chute foi menor que o número secreto!" << endl;
-		 	//}
-		 	//else
-		 	//{
-		 	//cout << "Você errou, o seu chute foi maior que o número secreto!" << endl;
-		 	//}
-		 //}
-     
      cout << "FIM DE JOGO!!" <<endl;
      if (naoAcertou)
 	 {
